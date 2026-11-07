@@ -1,0 +1,130 @@
+
+header {
+	background-color:palevioletred
+	border-bottom: 2px solid #b3b3ff;
+}
+body {
+  background-image: url(Images/Background.jpeg);
+}
+h1 {
+	color: aliceblue;
+	font-family: Trattatello, fantasy;
+	text-transform: uppercase;
+	font-size: 20px;
+	padding: 8px;
+	font-weight: normal;
+	letter-spacing: 1px;
+}
+h2 {
+	color: papayawhip;
+	font-family:Georgia, serif;
+	margin-left: 600px;
+	margin-top: 40px;
+	font-size: 40px;
+}
+h5 {
+	color: aliceblue;
+	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+	text-transform: uppercase;
+	margin: 5px;
+	font-weight: blod;
+	font-size: 15px;
+}
+h4 {
+	color: #002244;
+	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+	margin: 40px;
+	font-size: 24px;
+}
+.iframe{
+	margin: 30px;
+	font-size:30px;
+}
+.iframe1{
+margin-left: 500px;
+margin-top: 20px;
+}
+
+div.scroll-container {
+  background-color: papayawhip;
+  overflow: auto;
+  white-space: nowrap;
+  padding: 10px;
+   margin: 40px;
+}
+
+div.scroll-container img {
+  padding: 10px;
+}
+.test {
+	height: 300px;
+	width: 100%;
+	background-image: url("Images/WechatIMG1199.jpeg");
+	background-size: cover;
+	background-position: center;
+}
+span {
+	font-size: 140px;
+	/* float right; */
+	text-align: center;
+         color: aliceblue;
+	opacity: 0.5;
+	margin-top: 230px;
+}
+.card {
+   float: right;
+	margin: 50px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 20%;
+  height: 80%
+}
+
+.card:hover {
+  box-shadow: 0 8px 10px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+  padding: 	1px 4px;
+}
+.topnav {
+  overflow: hidden;
+  background-color:#F9CDEA;
+}
+.video{
+	margin-left: 30px;
+}
+.topnav a {
+  float: left;
+  color: #7A71CB;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 25px;
+}
+
+.topnav a:hover {
+  background-color:papayawhip;
+  color: lightpink;
+}
+
+.topnav a.active {
+  background-color: #E995E5;
+  color: white;
+}
+.footer {
+	float: right;
+   position: relative;
+   left: 0;
+   bottom: 200;
+   width: 100%;
+   padding: 5px;
+   background-color: papayawhip;
+   color: #87AED9;
+   text-align: center;
+}
+
+
+
+
+

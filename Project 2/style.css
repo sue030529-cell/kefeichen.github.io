@@ -1,0 +1,1492 @@
+/* ==========================================================================
+   KEFEI (SUSAN) CHEN - PERSONAL PORTFOLIO DESIGN SYSTEM
+   Vintage Pink / Coquette Ephemera / Retro Chinese Editorial Aesthetic
+   (粉色复古风 · 经典思源宋体 · 浪漫手账 · 邮戳名信片 · 典雅清晰中文排版)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Noto+Serif+SC:wght@400;500;600;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Vintage Rose & Antique Cream Paper Palette */
+  --bg-vintage: #FAF4EF;
+  --bg-paper: #FFFDF9;
+  --bg-dusty-pink: #F8E7ED;
+  --bg-soft-blush: #FCF1F5;
+  --bg-card-hover: #FFF9FA;
+
+  /* Antique Pink & Seal Tones */
+  --pink-vintage-light: #FCE8EE;
+  --pink-vintage: #E395AD;
+  --pink-vintage-deep: #A7385C;
+  --wine-seal: #7A203B;
+  --gold-accent: #C49A58;
+
+  /* Ink Typography (古典梅子墨水色，柔和深邃有书卷气，不显死黑) */
+  --text-ink-dark: #382531;
+  --text-ink-medium: #69505F;
+  --text-ink-muted: #9C8592;
+  --text-white: #FFFFFF;
+
+  /* Borders & Stamp Lines */
+  --border-vintage: rgba(167, 56, 92, 0.28);
+  --border-vintage-strong: rgba(167, 56, 92, 0.55);
+  --border-dashed: 1.5px dashed rgba(167, 56, 92, 0.4);
+
+  /* Shadows (柔和纸本阴影) */
+  --shadow-paper: 0 4px 16px rgba(167, 56, 92, 0.08);
+  --shadow-card: 0 10px 30px rgba(167, 56, 92, 0.12);
+  --shadow-card-hover: 0 20px 48px rgba(167, 56, 92, 0.2);
+  --shadow-seal: 0 6px 16px rgba(122, 32, 59, 0.35);
+
+  /* Font Families: 复古宋体 + 经典英式衬线 + 花体手写 + 等宽打字机 */
+  --font-serif-cn: 'Noto Serif SC', 'Songti SC', 'Source Han Serif SC', 'Cormorant Garamond', serif;
+  --font-serif: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  --font-script: 'Alex Brush', cursive;
+  --font-mono: 'Courier Prime', Courier, monospace;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Plus Jakarta Sans', sans-serif;
+
+  /* Smooth Transitions */
+  --transition-smooth: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: all 0.2s ease;
+}
+
+/* Base Reset & Antique Texture */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--bg-vintage);
+  background-image: 
+    radial-gradient(circle at 12% 15%, rgba(248, 231, 237, 0.8) 0%, transparent 45%),
+    radial-gradient(circle at 88% 85%, rgba(243, 218, 227, 0.7) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(250, 244, 239, 0.9) 0%, transparent 70%);
+  background-attachment: fixed;
+  color: var(--text-ink-dark);
+  font-family: var(--font-sans);
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+/* ==========================================================================
+   NAVIGATION BAR (复古法式报刊双线与纸本导航)
+   ========================================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(250, 244, 239, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 2px double var(--border-vintage-strong);
+  box-shadow: 0 4px 20px rgba(167, 56, 92, 0.06);
+  transition: var(--transition-smooth);
+}
+
+.nav-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0.85rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand-logo {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-name {
+  font-family: var(--font-serif-cn);
+  font-size: 1.55rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--wine-seal);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.brand-name .brand-script {
+  font-family: var(--font-script);
+  font-size: 2.1rem;
+  font-weight: 400;
+  color: var(--pink-vintage-deep);
+  margin-left: 0.25rem;
+}
+
+.brand-subtitle {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--text-ink-muted);
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.nav-link {
+  font-family: var(--font-serif-cn);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--text-ink-medium);
+  padding: 0.45rem 1.15rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  transition: var(--transition-smooth);
+}
+
+.nav-link:hover {
+  color: var(--wine-seal);
+  background: var(--bg-dusty-pink);
+  border-color: var(--border-vintage);
+}
+
+.nav-link.active {
+  color: #FFFFFF;
+  background: var(--wine-seal);
+  box-shadow: var(--shadow-seal);
+}
+
+.nav-cta {
+  background: var(--bg-paper);
+  border: 1.5px solid var(--border-vintage-strong);
+  color: var(--wine-seal) !important;
+  margin-left: 0.5rem;
+  font-family: var(--font-serif-cn);
+  font-weight: 700;
+}
+
+.nav-cta:hover {
+  background: var(--wine-seal) !important;
+  color: #FFFFFF !important;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-seal);
+}
+
+/* 语言切换按钮 (中 / EN Language Toggle Pill) */
+.lang-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  background: var(--bg-paper);
+  border: 1.5px solid var(--border-vintage);
+  color: var(--wine-seal);
+  font-family: var(--font-serif-cn), var(--font-serif-en);
+  font-size: 0.84rem;
+  font-weight: 700;
+  padding: 0.42rem 0.95rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  user-select: none;
+  box-shadow: 0 2px 8px rgba(122, 32, 59, 0.08);
+  margin-left: 0.4rem;
+}
+
+.lang-toggle-btn:hover {
+  background: var(--wine-seal);
+  color: #FFFFFF;
+  border-color: var(--wine-seal);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-seal);
+}
+
+.lang-toggle-btn .globe-icon {
+  font-size: 0.88rem;
+  line-height: 1;
+}
+
+body.lang-en {
+  --font-serif-cn: "Cormorant Garamond", "Noto Serif SC", Georgia, serif;
+}
+
+/* ==========================================================================
+   SUBPAGE HERO BANNER (复古航空邮戳与信件标头)
+   ========================================================================== */
+.subpage-hero {
+  padding: 4.5rem 2rem 3rem;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(248, 231, 237, 0.45) 0%, rgba(250, 244, 239, 0) 100%);
+  border-bottom: 2px double var(--border-vintage);
+  margin-bottom: 3.5rem;
+  position: relative;
+}
+
+.subpage-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--wine-seal);
+  background: var(--bg-paper);
+  padding: 0.4rem 1.25rem;
+  border-radius: 4px;
+  border: 1px dashed var(--border-vintage-strong);
+  box-shadow: var(--shadow-paper);
+  margin-bottom: 1rem;
+}
+
+.subpage-title {
+  font-family: var(--font-serif-cn);
+  font-size: 3.2rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--text-ink-dark);
+  margin-bottom: 0.85rem;
+}
+
+.subpage-title span {
+  font-family: var(--font-script);
+  font-size: 3.8rem;
+  font-weight: 400;
+  color: var(--pink-vintage-deep);
+  margin-left: 0.4rem;
+}
+
+.subpage-desc {
+  max-width: 720px;
+  margin: 0 auto;
+  font-family: var(--font-serif-cn);
+  font-size: 1.1rem;
+  color: var(--text-ink-medium);
+  line-height: 1.8;
+}
+
+/* ==========================================================================
+   HOME HERO SECTION (复古名信片与人文排版)
+   ========================================================================== */
+.home-hero {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 4.5rem 2rem 5rem;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--wine-seal);
+  background: var(--bg-paper);
+  border: 1.5px dashed var(--border-vintage-strong);
+  padding: 0.45rem 1.2rem;
+  border-radius: 6px;
+  width: fit-content;
+  box-shadow: var(--shadow-paper);
+}
+
+.hero-title {
+  font-family: var(--font-serif-cn);
+  font-size: 3.8rem;
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: 0.05em;
+  color: var(--text-ink-dark);
+}
+
+.hero-title .hero-script-name {
+  display: block;
+  font-family: var(--font-script);
+  font-size: 4.5rem;
+  font-weight: 400;
+  color: var(--pink-vintage-deep);
+  line-height: 1;
+  margin-top: 0.2rem;
+}
+
+.hero-subtitle {
+  font-family: var(--font-serif-cn);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--wine-seal);
+  letter-spacing: 0.08em;
+}
+
+.hero-bio {
+  font-size: 1.05rem;
+  color: var(--text-ink-medium);
+  line-height: 1.85;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.85rem;
+  font-family: var(--font-serif-cn);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  border-radius: 999px;
+  border: 1.5px solid transparent;
+}
+
+.btn-primary {
+  background: var(--wine-seal);
+  color: #FFFFFF;
+  box-shadow: var(--shadow-seal);
+}
+
+.btn-primary:hover {
+  background: var(--pink-vintage-deep);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(122, 32, 59, 0.45);
+}
+
+.btn-secondary {
+  background: var(--bg-paper);
+  color: var(--wine-seal);
+  border-color: var(--border-vintage-strong);
+  box-shadow: var(--shadow-paper);
+}
+
+.btn-secondary:hover {
+  background: var(--bg-dusty-pink);
+  border-color: var(--wine-seal);
+  transform: translateY(-2px);
+}
+
+.hero-socials {
+  display: flex;
+  align-items: center;
+  gap: 1.35rem;
+  margin-top: 0.75rem;
+  padding-top: 1.25rem;
+  border-top: 2px double var(--border-vintage);
+}
+
+.social-link {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-ink-medium);
+  letter-spacing: 0.05em;
+}
+
+.social-link:hover {
+  color: var(--wine-seal);
+}
+
+/* Hero Visual: 复古名信片照片边框 */
+.hero-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.profile-card-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 410px;
+}
+
+.profile-img-frame {
+  width: 100%;
+  height: 490px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(122, 32, 59, 0.18);
+  border: 10px solid #FFFFFF;
+  outline: 2px dashed var(--pink-vintage);
+  background: #FFFFFF;
+  position: relative;
+}
+
+.profile-img-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition-smooth);
+}
+
+.profile-img-frame:hover img {
+  transform: scale(1.04);
+}
+
+/* 邮戳印章徽章 */
+.profile-floating-badge {
+  position: absolute;
+  bottom: 20px;
+  left: -20px;
+  background: #FFFFFF;
+  padding: 0.9rem 1.4rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(122, 32, 59, 0.16);
+  border: 1.5px solid var(--border-vintage-strong);
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  transform: rotate(-1.5deg);
+}
+
+.badge-avatar-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #8F2B48 0%, #68192E 100%);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  box-shadow: var(--shadow-seal);
+  flex-shrink: 0;
+}
+
+.badge-text-title {
+  font-family: var(--font-serif-cn);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-ink-dark);
+}
+
+.badge-text-desc {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--wine-seal);
+  letter-spacing: 0.05em;
+}
+
+/* ==========================================================================
+   CONTAINERS & SECTION HEADINGS
+   ========================================================================== */
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section {
+  padding: 5rem 0;
+}
+
+.section-header {
+  margin-bottom: 3.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.section-tag {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--wine-seal);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.section-title {
+  font-family: var(--font-serif-cn);
+  font-size: 2.65rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--text-ink-dark);
+}
+
+.section-desc {
+  max-width: 740px;
+  color: var(--text-ink-medium);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+/* ==========================================================================
+   STATS HIGHLIGHTS CARDS (复古邮戳与票根数据看板)
+   ========================================================================== */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3.5rem;
+}
+
+.stat-card {
+  background: var(--bg-paper);
+  border: 1.5px dashed var(--border-vintage-strong);
+  border-radius: 14px;
+  padding: 1.6rem 1.25rem;
+  text-align: center;
+  box-shadow: var(--shadow-paper);
+  position: relative;
+  transition: var(--transition-smooth);
+}
+
+.stat-card::before {
+  content: '✦';
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 0.75rem;
+  color: var(--pink-vintage);
+}
+
+.stat-card:hover {
+  transform: translateY(-4px) rotate(-0.5deg);
+  box-shadow: var(--shadow-card);
+  border-color: var(--wine-seal);
+}
+
+.stat-num {
+  font-family: var(--font-serif-cn);
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: var(--wine-seal);
+  line-height: 1.1;
+  margin-bottom: 0.4rem;
+}
+
+.stat-label {
+  font-family: var(--font-serif-cn);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-ink-medium);
+}
+
+/* ==========================================================================
+   EXPERIENCE CARDS (复古档案卡与工作经历)
+   ========================================================================== */
+.exp-home-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.exp-home-card {
+  background: var(--bg-paper);
+  border: 1.5px solid var(--border-vintage);
+  border-radius: 18px;
+  padding: 2.4rem;
+  box-shadow: var(--shadow-paper);
+  position: relative;
+  transition: var(--transition-smooth);
+}
+
+.exp-home-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--border-vintage-strong);
+}
+
+.exp-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.15rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px double var(--border-vintage);
+}
+
+.exp-company-box {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.exp-company-badge {
+  font-size: 1.5rem;
+}
+
+.exp-company-name {
+  font-family: var(--font-serif-cn);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-ink-dark);
+}
+
+.exp-role-title {
+  font-family: var(--font-serif-cn);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--wine-seal);
+}
+
+.exp-bullets-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-top: 0.85rem;
+}
+
+.exp-bullet-item {
+  position: relative;
+  padding-left: 1.75rem;
+  font-size: 0.96rem;
+  color: var(--text-ink-medium);
+  line-height: 1.75;
+}
+
+.exp-bullet-item::before {
+  content: '🎀';
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+  font-size: 0.85rem;
+}
+
+.exp-bullet-item strong {
+  color: var(--text-ink-dark);
+  font-weight: 700;
+}
+
+/* 教育背景卡片 */
+.edu-banner-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.75rem;
+  margin-top: 2.5rem;
+}
+
+.edu-mini-card {
+  background: var(--bg-paper);
+  border: 1.5px dashed var(--border-vintage-strong);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: var(--shadow-paper);
+  transition: var(--transition-smooth);
+}
+
+.edu-mini-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card);
+  border-color: var(--wine-seal);
+}
+
+/* ==========================================================================
+   PROJECT CARDS & GRIDS (复古画廊与名信片卡片)
+   ========================================================================== */
+.grid-projects {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+}
+
+.project-card {
+  background: var(--bg-paper);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1.5px solid var(--border-vintage);
+  box-shadow: var(--shadow-paper);
+  transition: var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--border-vintage-strong);
+}
+
+.card-media {
+  position: relative;
+  width: 100%;
+  height: 290px;
+  overflow: hidden;
+  background: var(--bg-dusty-pink);
+  border-bottom: 2px double var(--border-vintage);
+}
+
+.card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-card:hover .card-media img {
+  transform: scale(1.05);
+}
+
+.card-media-badge {
+  position: absolute;
+  top: 1.15rem;
+  left: 1.15rem;
+  background: var(--bg-paper);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--wine-seal);
+  padding: 0.4rem 0.95rem;
+  border-radius: 6px;
+  border: 1px dashed var(--border-vintage-strong);
+  box-shadow: var(--shadow-paper);
+}
+
+.card-body {
+  padding: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 1rem;
+}
+
+.tag-pill {
+  font-family: var(--font-serif-cn);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  background: var(--bg-dusty-pink);
+  color: var(--wine-seal);
+  border: 1px solid var(--border-vintage);
+}
+
+.tag-pill.tag-featured {
+  background: var(--wine-seal);
+  color: #FFFFFF;
+  border-color: transparent;
+}
+
+.card-title {
+  font-family: var(--font-serif-cn);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-ink-dark);
+  margin-bottom: 0.75rem;
+  line-height: 1.35;
+}
+
+.card-desc {
+  font-size: 0.96rem;
+  color: var(--text-ink-medium);
+  line-height: 1.75;
+  margin-bottom: 1.75rem;
+  flex-grow: 1;
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1.25rem;
+  border-top: 1px dashed var(--border-vintage);
+}
+
+.card-action-link {
+  font-family: var(--font-serif-cn);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--wine-seal);
+}
+
+.card-action-link:hover {
+  color: var(--pink-vintage-deep);
+  gap: 0.7rem;
+}
+
+/* ==========================================================================
+   VIDEO & MEDIA CARD CONTAINER
+   ========================================================================== */
+.video-card-container {
+  background: var(--bg-paper);
+  border-radius: 20px;
+  padding: 2.25rem;
+  box-shadow: var(--shadow-paper);
+  border: 1.5px solid var(--border-vintage);
+  margin-bottom: 3rem;
+}
+
+.video-link-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .video-link-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.responsive-video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: var(--shadow-paper);
+  border: 4px solid var(--bg-paper);
+  outline: 1.5px dashed var(--pink-vintage);
+}
+
+.responsive-video-wrapper iframe,
+.responsive-video-wrapper video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ==========================================================================
+   INTERACTIVE BOOK PAGES / OVERLAPPING ART FOLIO DECK (翻动书页交叉堆叠)
+   ========================================================================== */
+.art-book-deck-container {
+  position: relative;
+  max-width: 1080px;
+  margin: 3.5rem auto 3rem;
+  padding: 2.5rem 1rem 4.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 560px;
+}
+
+.art-book-deck {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.book-page-card {
+  position: absolute;
+  width: 320px;
+  background: #FFFFFF;
+  padding: 12px 12px 16px 12px;
+  border-radius: 12px;
+  border: 1.5px solid var(--border-vintage);
+  box-shadow: 0 14px 36px rgba(167, 56, 92, 0.16);
+  cursor: pointer;
+  transition: all 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.25);
+  transform-origin: center center;
+  user-select: none;
+}
+
+.book-page-card img {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  border-radius: 6px;
+  transition: transform 0.4s ease;
+}
+
+.book-page-card .book-page-label {
+  padding-top: 0.85rem;
+  font-family: var(--font-serif-cn);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-ink-dark);
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+
+/* 4 张卡片初始交叉叠放姿态（宛如随性摊开在书桌上的复古画册） */
+.book-page-card:nth-child(1) {
+  transform: translateX(-240px) rotate(-10deg);
+  z-index: 1;
+}
+.book-page-card:nth-child(2) {
+  transform: translateX(-80px) rotate(-3deg);
+  z-index: 2;
+}
+.book-page-card:nth-child(3) {
+  transform: translateX(80px) rotate(4deg);
+  z-index: 3;
+}
+.book-page-card:nth-child(4) {
+  transform: translateX(240px) rotate(11deg);
+  z-index: 4;
+}
+
+/* 鼠标悬停任意书页：自动翻起、置于顶层、拉直并放大展示全部细节 */
+.book-page-card:hover {
+  z-index: 50 !important;
+  transform: scale(1.24) rotate(0deg) translateY(-32px) !important;
+  box-shadow: 0 32px 70px rgba(122, 32, 59, 0.35);
+  border-color: var(--wine-seal);
+}
+
+@media (max-width: 992px) {
+  .art-book-deck-container {
+    min-height: 500px;
+  }
+  .book-page-card {
+    width: 260px;
+    padding: 10px 10px 14px 10px;
+  }
+  .book-page-card img {
+    height: 280px;
+  }
+  .book-page-card:nth-child(1) {
+    transform: translateX(-160px) rotate(-9deg);
+  }
+  .book-page-card:nth-child(2) {
+    transform: translateX(-50px) rotate(-3deg);
+  }
+  .book-page-card:nth-child(3) {
+    transform: translateX(50px) rotate(3deg);
+  }
+  .book-page-card:nth-child(4) {
+    transform: translateX(160px) rotate(9deg);
+  }
+  .book-page-card:hover {
+    transform: scale(1.18) rotate(0deg) translateY(-20px) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .art-book-deck-container {
+    min-height: auto;
+    padding: 1rem 0;
+  }
+  .art-book-deck {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin-top: 1rem;
+  }
+  .book-page-card {
+    position: static;
+    width: 100%;
+    transform: none !important;
+    box-shadow: var(--shadow-paper);
+  }
+  .book-page-card img {
+    height: 200px;
+  }
+  .book-page-card:hover {
+    transform: translateY(-4px) !important;
+  }
+}
+
+/* ==========================================================================
+   PHOTO GRID (拍立得画廊展览)
+   ========================================================================== */
+.photo-masonry-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.photo-item {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #FFFFFF;
+  padding: 12px 12px 16px 12px; /* 拍立得相框 */
+  box-shadow: var(--shadow-paper);
+  border: 1px solid var(--border-vintage);
+  transition: var(--transition-smooth);
+}
+
+.photo-item:hover {
+  transform: translateY(-6px) rotate(0.8deg);
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--border-vintage-strong);
+}
+
+.photo-item img {
+  width: 100%;
+  height: 290px;
+  object-fit: cover;
+  border-radius: 6px;
+  transition: transform 0.55s ease;
+}
+
+.photo-item:hover img {
+  transform: scale(1.04);
+}
+
+.photo-caption {
+  padding-top: 0.85rem;
+  font-family: var(--font-serif-cn);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-ink-dark);
+  text-align: center;
+}
+
+/* ==========================================================================
+   RESUME PAGE STYLES (复古档案与技能树)
+   ========================================================================== */
+.resume-layout {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 3.5rem;
+}
+
+.resume-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.sidebar-card {
+  background: var(--bg-paper);
+  border-radius: 20px;
+  padding: 2.25rem;
+  border: 1.5px solid var(--border-vintage);
+  box-shadow: var(--shadow-paper);
+}
+
+.resume-avatar-frame {
+  width: 100%;
+  height: 390px;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow-card);
+  border: 6px solid #FFFFFF;
+  outline: 1.5px dashed var(--pink-vintage);
+}
+
+.resume-avatar-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sidebar-name {
+  font-family: var(--font-serif-cn);
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: var(--wine-seal);
+  margin-bottom: 0.25rem;
+}
+
+.sidebar-title {
+  font-family: var(--font-serif-cn);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--pink-vintage-deep);
+  margin-bottom: 1.15rem;
+}
+
+.sidebar-intro {
+  font-size: 0.96rem;
+  color: var(--text-ink-medium);
+  line-height: 1.8;
+}
+
+.skills-group {
+  margin-top: 1.5rem;
+}
+
+.skills-group-title {
+  font-family: var(--font-serif-cn);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--wine-seal);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.skills-pills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* Timeline */
+.resume-main {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+.resume-section-title {
+  font-family: var(--font-serif-cn);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-ink-dark);
+  margin-bottom: 1.75rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 2px double var(--border-vintage);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+  position: relative;
+  padding-left: 1.85rem;
+  border-left: 2px dashed var(--border-vintage-strong);
+}
+
+.timeline-item {
+  position: relative;
+}
+
+.timeline-item::before {
+  content: '💌';
+  position: absolute;
+  left: -2.85rem;
+  top: 0.15rem;
+  font-size: 1rem;
+}
+
+.timeline-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.timeline-title {
+  font-family: var(--font-serif-cn);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--text-ink-dark);
+}
+
+.timeline-institution {
+  font-family: var(--font-serif-cn);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--wine-seal);
+}
+
+.timeline-badge {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--wine-seal);
+  background: var(--bg-dusty-pink);
+  border: 1px dashed var(--border-vintage);
+  padding: 0.25rem 0.85rem;
+  border-radius: 4px;
+}
+
+.timeline-desc {
+  font-size: 0.96rem;
+  color: var(--text-ink-medium);
+  line-height: 1.8;
+  margin-top: 0.5rem;
+}
+
+/* ==========================================================================
+   CONTACT PAGE STYLES (复古信笺与表单)
+   ========================================================================== */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+
+.contact-info-card,
+.contact-form-card {
+  background: var(--bg-paper);
+  border-radius: 22px;
+  padding: 2.75rem;
+  border: 1.5px solid var(--border-vintage);
+  box-shadow: var(--shadow-paper);
+}
+
+.contact-method-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.contact-method-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+.contact-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--bg-dusty-pink);
+  color: var(--wine-seal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+  box-shadow: var(--shadow-paper);
+  border: 1px dashed var(--border-vintage-strong);
+}
+
+.contact-method-label {
+  font-family: var(--font-serif-cn);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-ink-muted);
+}
+
+.contact-method-value {
+  font-family: var(--font-serif-cn);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-ink-dark);
+  margin-top: 0.15rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  font-family: var(--font-serif-cn);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-ink-dark);
+  margin-bottom: 0.5rem;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.95rem 1.25rem;
+  border: 1.5px solid var(--border-vintage);
+  border-radius: 8px;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--text-ink-dark);
+  background: #FFFFFF;
+  transition: var(--transition-smooth);
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--wine-seal);
+  box-shadow: 0 0 0 4px rgba(167, 56, 92, 0.15);
+}
+
+/* ==========================================================================
+   FOOTER (复古书志与版权署名)
+   ========================================================================== */
+.site-footer {
+  margin-top: 6rem;
+  background: rgba(250, 244, 239, 0.95);
+  border-top: 2px double var(--border-vintage-strong);
+  padding: 4rem 2rem 2.5rem;
+}
+
+.footer-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.footer-brand {
+  max-width: 440px;
+}
+
+.footer-brand-title {
+  font-family: var(--font-serif-cn);
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--wine-seal);
+  margin-bottom: 0.5rem;
+}
+
+.footer-brand-desc {
+  font-size: 0.95rem;
+  color: var(--text-ink-medium);
+  line-height: 1.8;
+}
+
+.footer-links-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.footer-col-title {
+  font-family: var(--font-serif-cn);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--wine-seal);
+  margin-bottom: 0.35rem;
+}
+
+.footer-link {
+  font-family: var(--font-serif-cn);
+  font-size: 1rem;
+  color: var(--text-ink-medium);
+  transition: var(--transition-fast);
+}
+
+.footer-link:hover {
+  color: var(--wine-seal);
+  transform: translateX(3px);
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1.75rem;
+  border-top: 1px dashed var(--border-vintage);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-ink-muted);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (Tablets & Mobile)
+   ========================================================================== */
+@media (max-width: 992px) {
+  .home-hero {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+  
+  .hero-title {
+    font-size: 3.2rem;
+  }
+  
+  .hero-actions,
+  .hero-socials {
+    justify-content: center;
+  }
+  
+  .profile-card-wrapper {
+    margin: 0 auto;
+  }
+  
+  .grid-projects {
+    grid-template-columns: 1fr;
+  }
+  
+  .resume-layout {
+    grid-template-columns: 1fr;
+  }
+  
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .edu-banner-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-container {
+    padding: 1rem;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .site-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .hero-title {
+    font-size: 2.6rem;
+  }
+  
+  .subpage-title {
+    font-size: 2.4rem;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+}
